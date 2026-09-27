@@ -6,11 +6,9 @@
 
 | Source | What it gave us | Link |
 |---|---|---|
-| SP Racing H7RF manual (PDF, 19 pages) | bootloader functions, error patterns, `dfu-util` recipes, partition addresses (pp.14-17) | <http://www.seriouslypro.com/files/SPRacingH7RF-Manual-latest.pdf> |
+| SP Racing manual (PDF, 19 pages; titled for a different SP Racing product — this project's board is SPRACINGH7EF, the manual's bootloader/DFU/partition content applies because both boards share the same STM32H730 EXST bootloader mechanism, confirmed on this hardware) | bootloader functions, error patterns, `dfu-util` recipes, partition addresses (pp.14-17) | <http://www.seriouslypro.com/files/SPRacingH7RF-Manual-latest.pdf> |
 | Betaflight EXST bootloader doc | image layout, 64-byte bootloader block, MD5 | <https://betaflight.com/docs/development/EXST-Bootloader> |
-| `spracing/betaflight` releases | official H7RF image used as a format reference (`SPRACING-20240429-1201-4.5.0-H7RF`) | <https://github.com/spracing/betaflight/releases> |
 | `spracing/ssbl` | a different bootloader for the H750 H7 EXTREME; **not** this board | <https://github.com/spracing/ssbl> |
-| Betaflight board configs | H7EF vs H7RF differences (`configs/SPRO/`) | <https://github.com/betaflight/config> |
 | Betaflight Configurator source | how its DFU erase logic is written (`src/js/protocols/usbdfu.js`) | <https://github.com/betaflight/betaflight-configurator> |
 | `dfu-util` | the tool | <https://dfu-util.sourceforge.net/> |
 

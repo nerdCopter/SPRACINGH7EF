@@ -6,7 +6,7 @@ This is the path that worked on the real board: write the 1 MiB image with `dfu-
 
 ## Use the right firmware
 
-- The firmware must be built for **SPRACINGH7EF** (Betaflight target name). Firmware for the H7RF is a different board ([differences](08-h7ef-vs-h7rf.md)). The manual warns that flashing the wrong firmware can permanently damage the board. **[SRC]**
+- The firmware must be built for **SPRACINGH7EF**. Never flash firmware built for a different SP Racing board. The manual warns that flashing the wrong firmware can permanently damage the board. **[SRC]** This was tested the hard way: a firmware image built for a different SP Racing product left this board unable to boot (data/USB) until the correct SPRACINGH7EF image was reflashed ([case study](07-case-study.md), 2026-09-27 entry).
 - The image must be an [EXST image](03-firmware-image-format.md): one 1 MiB block at 0x90100000 whose hash checks out.
 - Example that was flashed and read back on the real board: [`data/reference-images/betaflight-2026.12.0-alpha-SPRACINGH7EF`](../data/reference-images/betaflight-2026.12.0-alpha-SPRACINGH7EF). It is an alpha build, good for testing. For flying, use a current stable release. **[SRC]** (manual p.14 says to install the latest stable firmware)
 

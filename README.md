@@ -31,7 +31,6 @@ The script first saves the board's current flash, checks what is wrong, and writ
 | My board will not boot (red LED blinking, or no USB port) | [Repair and restore](docs/05-repair-restore.md), then [Troubleshooting](docs/09-troubleshooting.md) |
 | I want to put new firmware on the board | [Flash firmware](docs/06-flash-firmware.md) |
 | I want to know why it broke | [Case study](docs/07-case-study.md) |
-| I have an H7RF, not an H7EF | [H7EF vs H7RF](docs/08-h7ef-vs-h7rf.md) |
 
 ## Quick facts (all checked on hardware unless marked)
 
@@ -64,14 +63,13 @@ Full table with sources: [flash map and bootloader](docs/02-flash-map-and-bootlo
 **Reference (understand things)**
 6. [Flash map and bootloader](docs/02-flash-map-and-bootloader.md)
 7. [Firmware image format (EXST)](docs/03-firmware-image-format.md)
-8. [H7EF vs H7RF](docs/08-h7ef-vs-h7rf.md)
-9. [Evidence ledger: what is proven and what is not](docs/10-evidence-ledger.md)
-10. [Sources and glossary](docs/11-sources-and-glossary.md)
+8. [Evidence ledger: what is proven and what is not](docs/10-evidence-ledger.md)
+9. [Sources and glossary](docs/11-sources-and-glossary.md)
 
 **History**
-11. [Case study: the broken board, 2026-09-26](docs/07-case-study.md)
-12. [How to add findings](docs/12-contributing-findings.md)
-13. [Changelog](CHANGELOG.md)
+10. [Case study: the broken board, 2026-09-26](docs/07-case-study.md)
+11. [How to add findings](docs/12-contributing-findings.md)
+12. [Changelog](CHANGELOG.md)
 
 **Files**
 

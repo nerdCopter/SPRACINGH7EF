@@ -5,7 +5,7 @@
 ## 2026-09-26
 
 - Repo created from the first hardware session on two SPRacingH7EF boards.
-- Added: prerequisites, safety rules, flash map and bootloader reference, EXST image format, backup, repair and restore, firmware flashing, case study, H7EF vs H7RF comparison, troubleshooting, evidence ledger, sources and glossary.
+- Added: prerequisites, safety rules, flash map and bootloader reference, EXST image format, backup, repair and restore, firmware flashing, case study troubleshooting, evidence ledger, sources and glossary.
 - Added scripts: `spracingh7ef-flash-backup.sh` (backup, check, verify) and `spracingh7ef-flash-restore.sh` (with `--system-only`, `--dry-run`). Both check for `dfu-util` and other tools.
 - Added tools: `exst_hex_to_bin.py`, `exst_check_bin.py`, `exst_hexmap.py`.
 - Added data: factory board backup (A1; A2 as checksums), broken board before and after repair, reference Betaflight images, evidence logs.

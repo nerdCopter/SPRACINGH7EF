@@ -83,12 +83,12 @@ On the factory board **[HW]**: data in the first 32,768 bytes (0x0000 to 0x7FFF)
 ## The chip's internal flash and boot pins
 
 - The STM32H730 has only 128 KiB of internal flash. It holds the bootloader and nothing else of the firmware. **[SRC]** (Betaflight's H730 target header says the chip "only has one flash page which contains the bootloader")
-- The bootloader configures the external flash's OctoSPI pins before the firmware starts: PB2 (clock), PB10 (chip select), PE7, PE8, PE9, PE10 (data lines IO4 to IO7). The firmware must not reconfigure them. Betaflight's board config reserves these pins. **[SRC]** ([config diff](../data/evidence/bf-config-diff-H7EF-vs-H7RF.txt))
+- The bootloader configures the external flash's OctoSPI pins before the firmware starts: PB2 (clock), PB10 (chip select), PE7, PE8, PE9, PE10 (data lines IO4 to IO7). The firmware must not reconfigure them. Betaflight's real SPRACINGH7EF board config (`configs/SPRO/SPRACINGH7EF/config.h`, <https://github.com/betaflight/config>) reserves exactly these pins. **[SRC]**
 - The H7EF has a second, separate flash chip on SPI6 (an M25P16, chip select PD7) used for blackbox logs. **[SRC]** That chip is not the one the DFU shows.
 
 ## Manual `dfu-util` commands (from the manual, p.16)
 
-These are the manual's own recipes for the H7RF. They work on the H7EF because the bootloader and flash map are the same ([H7EF vs H7RF](08-h7ef-vs-h7rf.md)). **[SRC]**; firmware write and read-back **[HW]** (used with `-a 0`).
+These are the manual's own recipes. The printed manual this project used is titled for a different SP Racing product (see the note in [Sources](11-sources-and-glossary.md)); its bootloader and DFU steps apply here because this board uses the same STM32H730 EXST bootloader mechanism, confirmed by the matching DFU descriptor read from this hardware (§ above). **[SRC]** for the manual text; firmware write and read-back **[HW]** (used with `-a 0`).
 
 | Action | Command |
 |---|---|

@@ -25,7 +25,7 @@ Checked with [`tools/exst_hex_to_bin.py`](../tools/exst_hex_to_bin.py) (for hex 
 | Firmware partition read from the factory board | PASS |
 | Firmware partition read from the broken board before repair | PASS |
 | Betaflight 2026.12.0-alpha H7EF build (hex and bin) | PASS |
-| Official SP Racing H7RF release 4.5.0 (hex and bin) | PASS |
+| Real Betaflight SPRACINGH7EF 4.3.0 firmware, read from a working factory board | PASS |
 
 The rule does not apply to the system partition (it has no such hash).
 

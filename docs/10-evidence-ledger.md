@@ -21,7 +21,7 @@ One row per important claim, with how we know. When you learn something new, add
 | 13 | Betaflight Configurator has the same full-chip erase logic (default off) | [SRC] | its `src/js/protocols/usbdfu.js` on master, read 2026-09-26; not tested on hardware |
 | 14 | Bootloader functions 1-8, 15-17 do what the manual says | [SRC] | manual p.15. None were run. |
 | 15 | Error-pattern table (2 to 8 slow flashes) | [SRC] | manual p.15. Not decoded on real hardware. |
-| 16 | H7EF and H7RF share bootloader, flash map and image format; pins, gyros, receiver, SD, config storage differ | [SRC] for pins etc., [HW] for the shared parts | [config diff](../data/evidence/bf-config-diff-H7EF-vs-H7RF.txt), DFU descriptor, hash checks |
+| 16 | Flashing a firmware image built for a different SP Racing product onto this board leaves it unable to boot into a usable state (no COM port, not recognized by Betaflight Configurator), even though the raw flash write and read-back succeed | [HW] | 2026-09-27, see [case study](07-case-study.md) |
 | 17 | The CPU's internal flash (bootloader) cannot be read by these commands | [INF] | it is not in the DFU map; function 4 (ROM DFU) was not tried |
 | 18 | Why the repaired board needed three re-plugs | [UNV] | user report only |
 | 19 | Why the old three-block image failed verification at 0x901002D0 | [UNV] | log only ([lines 291-294](../data/evidence/configurator-failed-flash-console.log)) |
