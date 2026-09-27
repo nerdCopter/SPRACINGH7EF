@@ -42,7 +42,7 @@ With the board in [DFU mode](02-flash-map-and-bootloader.md#enter-bootloader-dfu
 | `--force-system` | overwrite a system partition that has other data (not blank and not the stored copy) |
 | `--yes` | do not ask for YES |
 
-**Status.** The system-partition write it performs is the same `dfu-util` command that repaired the real board **[HW]**. The script was tested against a simulated board using the real dumps: blank system, blank firmware, explicit firmware choice, unknown system data, two devices, dry-run, invalid image, answering NO, and "nothing to fix". It has **not** yet run on real hardware **[INF]**.
+**Status.** The system-partition write it performs is the same `dfu-util` command that repaired the real board **[HW]**. The script itself was tested against a simulated board across 9 scenarios: blank system, blank firmware, explicit firmware choice, unknown system data, two devices, dry-run, invalid image, answering NO, and "nothing to fix". On 2026-09-27 its **diagnosis** ran on the real factory board and correctly reported nothing to fix **[HW]**. Its **write** path has not yet run on a real broken board **[INF]**.
 
 ## Which fix for which problem
 

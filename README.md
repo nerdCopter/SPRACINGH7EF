@@ -20,7 +20,7 @@ If your board shows solid green and blue LEDs with a flashing red LED and never 
 4. Unplug USB (do not hold BIND) and plug it in again. It may need several re-plugs before it starts.
 
 The script first saves the board's current flash, checks what is wrong, and writes only what is needed. Full explanation and the manual alternatives: [Repair and restore](docs/05-repair-restore.md).
-**Status:** the same write, done with `dfu-util` by hand, repaired a real board **[HW]**. The script itself was tested against a simulated board using real dumps, not yet on real hardware **[INF]**.
+**Status:** the underlying write (`dfu-util` by hand) repaired a real board **[HW]**. The script's diagnosis ran on a real board on 2026-09-27 and correctly found nothing to fix **[HW]**. Its write path is still simulated-only, not yet used to repair a real broken board **[INF]**.
 
 ## Which situation are you in?
 
