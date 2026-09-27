@@ -1,0 +1,299 @@
+/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/dist/support/preload.js:481 Electron: chrome API polyfills loaded (serial, storage, usb, app)
+main.html:101 [OK] jQuery loaded
+main.html:109 [OK] i18next loaded
+main.html:116 [OK] i18next-xhr-backend loaded
+main.html:123 [OK] marked loaded
+main.html:130 [OK] object-hash loaded
+main.html:137 [OK] inflection loaded
+main.html:145 [OK] bluebird Promise loaded
+main.html:153 [OK] npm packages loaded via require()
+gui.js:82 GUI_Mode =  Electron
+main.js:42 Presets file location: /tmp
+main.js:88 doc ready CONFIGURATOR.version 0.4.3
+main.js:90 doc ready CONFIGURATOR.max_msp 1.54.0
+localization.js:170 Detected locale en-US
+/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next::backendConnector: loaded namespace messages for language en Object
+/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next: languageChanged en
+/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next: initialized Object
+localization.js:31 i18n system loaded
+localization.js:170 Detected locale en-US
+main.js:157 Libraries: jQuery - 3.5.0, d3 - 3.5.6, three.js - 72
+FirmwareCache.js:257 Firmware cache journal loaded; number of entries: 0
+firmware_flasher.js:397 Loading file from: /home/ndronet/SYNC/nerdCopter-GIT/worktrees/feat/spracingh7ef-target-bf-parity/obj/EmuFlight_0.4.3_SPRACINGH7EF_Build_f0f0477.hex
+firmware_flasher.js:406 File loaded (1117244)
+js/workers/hex_parser.js:107 HEX_PARSER - File parsed in: 0.0800 seconds
+stm32usbdfu.js:102 USB DFU detected with ID: DeviceId(DeviceId { bus: 1, addr: 10 })
+stm32usbdfu.js:145 Device opened with Handle ID: 1
+stm32usbdfu.js:180 Claimed interface: 0
+stm32usbdfu.js:349 Descriptors: @External Flash /0x90000000/111*8Kg,16*8Kg,1*8Kg,128*8Kg,0*8Ka
+stm32usbdfu.js:685 Using transfer size: 1024
+stm32usbdfu.js:852 Executing local chip erase (256) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …]
+stm32usbdfu.js:862 Erasing. sector 0, page 0 @ 0x90000000
+stm32usbdfu.js:862 Erasing. sector 0, page 1 @ 0x90002000
+stm32usbdfu.js:862 Erasing. sector 0, page 2 @ 0x90004000
+stm32usbdfu.js:862 Erasing. sector 0, page 3 @ 0x90006000
+stm32usbdfu.js:862 Erasing. sector 0, page 4 @ 0x90008000
+stm32usbdfu.js:862 Erasing. sector 0, page 5 @ 0x9000a000
+stm32usbdfu.js:862 Erasing. sector 0, page 6 @ 0x9000c000
+stm32usbdfu.js:862 Erasing. sector 0, page 7 @ 0x9000e000
+stm32usbdfu.js:862 Erasing. sector 0, page 8 @ 0x90010000
+stm32usbdfu.js:862 Erasing. sector 0, page 9 @ 0x90012000
+stm32usbdfu.js:862 Erasing. sector 0, page 10 @ 0x90014000
+stm32usbdfu.js:862 Erasing. sector 0, page 11 @ 0x90016000
+stm32usbdfu.js:862 Erasing. sector 0, page 12 @ 0x90018000
+stm32usbdfu.js:862 Erasing. sector 0, page 13 @ 0x9001a000
+stm32usbdfu.js:862 Erasing. sector 0, page 14 @ 0x9001c000
+stm32usbdfu.js:862 Erasing. sector 0, page 15 @ 0x9001e000
+stm32usbdfu.js:862 Erasing. sector 0, page 16 @ 0x90020000
+stm32usbdfu.js:862 Erasing. sector 0, page 17 @ 0x90022000
+stm32usbdfu.js:862 Erasing. sector 0, page 18 @ 0x90024000
+stm32usbdfu.js:862 Erasing. sector 0, page 19 @ 0x90026000
+stm32usbdfu.js:862 Erasing. sector 0, page 20 @ 0x90028000
+stm32usbdfu.js:862 Erasing. sector 0, page 21 @ 0x9002a000
+stm32usbdfu.js:862 Erasing. sector 0, page 22 @ 0x9002c000
+stm32usbdfu.js:862 Erasing. sector 0, page 23 @ 0x9002e000
+stm32usbdfu.js:862 Erasing. sector 0, page 24 @ 0x90030000
+stm32usbdfu.js:862 Erasing. sector 0, page 25 @ 0x90032000
+stm32usbdfu.js:862 Erasing. sector 0, page 26 @ 0x90034000
+stm32usbdfu.js:862 Erasing. sector 0, page 27 @ 0x90036000
+stm32usbdfu.js:862 Erasing. sector 0, page 28 @ 0x90038000
+stm32usbdfu.js:862 Erasing. sector 0, page 29 @ 0x9003a000
+stm32usbdfu.js:862 Erasing. sector 0, page 30 @ 0x9003c000
+stm32usbdfu.js:862 Erasing. sector 0, page 31 @ 0x9003e000
+stm32usbdfu.js:862 Erasing. sector 0, page 32 @ 0x90040000
+stm32usbdfu.js:862 Erasing. sector 0, page 33 @ 0x90042000
+stm32usbdfu.js:862 Erasing. sector 0, page 34 @ 0x90044000
+stm32usbdfu.js:862 Erasing. sector 0, page 35 @ 0x90046000
+stm32usbdfu.js:862 Erasing. sector 0, page 36 @ 0x90048000
+stm32usbdfu.js:862 Erasing. sector 0, page 37 @ 0x9004a000
+stm32usbdfu.js:862 Erasing. sector 0, page 38 @ 0x9004c000
+stm32usbdfu.js:862 Erasing. sector 0, page 39 @ 0x9004e000
+stm32usbdfu.js:862 Erasing. sector 0, page 40 @ 0x90050000
+stm32usbdfu.js:862 Erasing. sector 0, page 41 @ 0x90052000
+stm32usbdfu.js:862 Erasing. sector 0, page 42 @ 0x90054000
+stm32usbdfu.js:862 Erasing. sector 0, page 43 @ 0x90056000
+stm32usbdfu.js:862 Erasing. sector 0, page 44 @ 0x90058000
+stm32usbdfu.js:862 Erasing. sector 0, page 45 @ 0x9005a000
+stm32usbdfu.js:862 Erasing. sector 0, page 46 @ 0x9005c000
+stm32usbdfu.js:862 Erasing. sector 0, page 47 @ 0x9005e000
+stm32usbdfu.js:862 Erasing. sector 0, page 48 @ 0x90060000
+stm32usbdfu.js:862 Erasing. sector 0, page 49 @ 0x90062000
+stm32usbdfu.js:862 Erasing. sector 0, page 50 @ 0x90064000
+stm32usbdfu.js:862 Erasing. sector 0, page 51 @ 0x90066000
+stm32usbdfu.js:862 Erasing. sector 0, page 52 @ 0x90068000
+stm32usbdfu.js:862 Erasing. sector 0, page 53 @ 0x9006a000
+stm32usbdfu.js:862 Erasing. sector 0, page 54 @ 0x9006c000
+stm32usbdfu.js:862 Erasing. sector 0, page 55 @ 0x9006e000
+stm32usbdfu.js:862 Erasing. sector 0, page 56 @ 0x90070000
+stm32usbdfu.js:862 Erasing. sector 0, page 57 @ 0x90072000
+stm32usbdfu.js:862 Erasing. sector 0, page 58 @ 0x90074000
+stm32usbdfu.js:862 Erasing. sector 0, page 59 @ 0x90076000
+stm32usbdfu.js:862 Erasing. sector 0, page 60 @ 0x90078000
+stm32usbdfu.js:862 Erasing. sector 0, page 61 @ 0x9007a000
+stm32usbdfu.js:862 Erasing. sector 0, page 62 @ 0x9007c000
+stm32usbdfu.js:862 Erasing. sector 0, page 63 @ 0x9007e000
+stm32usbdfu.js:862 Erasing. sector 0, page 64 @ 0x90080000
+stm32usbdfu.js:862 Erasing. sector 0, page 65 @ 0x90082000
+stm32usbdfu.js:862 Erasing. sector 0, page 66 @ 0x90084000
+stm32usbdfu.js:862 Erasing. sector 0, page 67 @ 0x90086000
+stm32usbdfu.js:862 Erasing. sector 0, page 68 @ 0x90088000
+stm32usbdfu.js:862 Erasing. sector 0, page 69 @ 0x9008a000
+stm32usbdfu.js:862 Erasing. sector 0, page 70 @ 0x9008c000
+stm32usbdfu.js:862 Erasing. sector 0, page 71 @ 0x9008e000
+stm32usbdfu.js:862 Erasing. sector 0, page 72 @ 0x90090000
+stm32usbdfu.js:862 Erasing. sector 0, page 73 @ 0x90092000
+stm32usbdfu.js:862 Erasing. sector 0, page 74 @ 0x90094000
+stm32usbdfu.js:862 Erasing. sector 0, page 75 @ 0x90096000
+stm32usbdfu.js:862 Erasing. sector 0, page 76 @ 0x90098000
+stm32usbdfu.js:862 Erasing. sector 0, page 77 @ 0x9009a000
+stm32usbdfu.js:862 Erasing. sector 0, page 78 @ 0x9009c000
+stm32usbdfu.js:862 Erasing. sector 0, page 79 @ 0x9009e000
+stm32usbdfu.js:862 Erasing. sector 0, page 80 @ 0x900a0000
+stm32usbdfu.js:862 Erasing. sector 0, page 81 @ 0x900a2000
+stm32usbdfu.js:862 Erasing. sector 0, page 82 @ 0x900a4000
+stm32usbdfu.js:862 Erasing. sector 0, page 83 @ 0x900a6000
+stm32usbdfu.js:862 Erasing. sector 0, page 84 @ 0x900a8000
+stm32usbdfu.js:862 Erasing. sector 0, page 85 @ 0x900aa000
+stm32usbdfu.js:862 Erasing. sector 0, page 86 @ 0x900ac000
+stm32usbdfu.js:862 Erasing. sector 0, page 87 @ 0x900ae000
+stm32usbdfu.js:862 Erasing. sector 0, page 88 @ 0x900b0000
+stm32usbdfu.js:862 Erasing. sector 0, page 89 @ 0x900b2000
+stm32usbdfu.js:862 Erasing. sector 0, page 90 @ 0x900b4000
+stm32usbdfu.js:862 Erasing. sector 0, page 91 @ 0x900b6000
+stm32usbdfu.js:862 Erasing. sector 0, page 92 @ 0x900b8000
+stm32usbdfu.js:862 Erasing. sector 0, page 93 @ 0x900ba000
+stm32usbdfu.js:862 Erasing. sector 0, page 94 @ 0x900bc000
+stm32usbdfu.js:862 Erasing. sector 0, page 95 @ 0x900be000
+stm32usbdfu.js:862 Erasing. sector 0, page 96 @ 0x900c0000
+stm32usbdfu.js:862 Erasing. sector 0, page 97 @ 0x900c2000
+stm32usbdfu.js:862 Erasing. sector 0, page 98 @ 0x900c4000
+stm32usbdfu.js:862 Erasing. sector 0, page 99 @ 0x900c6000
+stm32usbdfu.js:862 Erasing. sector 0, page 100 @ 0x900c8000
+stm32usbdfu.js:862 Erasing. sector 0, page 101 @ 0x900ca000
+stm32usbdfu.js:862 Erasing. sector 0, page 102 @ 0x900cc000
+stm32usbdfu.js:862 Erasing. sector 0, page 103 @ 0x900ce000
+stm32usbdfu.js:862 Erasing. sector 0, page 104 @ 0x900d0000
+stm32usbdfu.js:862 Erasing. sector 0, page 105 @ 0x900d2000
+stm32usbdfu.js:862 Erasing. sector 0, page 106 @ 0x900d4000
+stm32usbdfu.js:862 Erasing. sector 0, page 107 @ 0x900d6000
+stm32usbdfu.js:862 Erasing. sector 0, page 108 @ 0x900d8000
+stm32usbdfu.js:862 Erasing. sector 0, page 109 @ 0x900da000
+stm32usbdfu.js:862 Erasing. sector 0, page 110 @ 0x900dc000
+stm32usbdfu.js:862 Erasing. sector 1, page 0 @ 0x900de000
+stm32usbdfu.js:862 Erasing. sector 1, page 1 @ 0x900e0000
+stm32usbdfu.js:862 Erasing. sector 1, page 2 @ 0x900e2000
+stm32usbdfu.js:862 Erasing. sector 1, page 3 @ 0x900e4000
+stm32usbdfu.js:862 Erasing. sector 1, page 4 @ 0x900e6000
+stm32usbdfu.js:862 Erasing. sector 1, page 5 @ 0x900e8000
+stm32usbdfu.js:862 Erasing. sector 1, page 6 @ 0x900ea000
+stm32usbdfu.js:862 Erasing. sector 1, page 7 @ 0x900ec000
+stm32usbdfu.js:862 Erasing. sector 1, page 8 @ 0x900ee000
+stm32usbdfu.js:862 Erasing. sector 1, page 9 @ 0x900f0000
+stm32usbdfu.js:862 Erasing. sector 1, page 10 @ 0x900f2000
+stm32usbdfu.js:862 Erasing. sector 1, page 11 @ 0x900f4000
+stm32usbdfu.js:862 Erasing. sector 1, page 12 @ 0x900f6000
+stm32usbdfu.js:862 Erasing. sector 1, page 13 @ 0x900f8000
+stm32usbdfu.js:862 Erasing. sector 1, page 14 @ 0x900fa000
+stm32usbdfu.js:862 Erasing. sector 1, page 15 @ 0x900fc000
+stm32usbdfu.js:862 Erasing. sector 2, page 0 @ 0x900fe000
+stm32usbdfu.js:862 Erasing. sector 3, page 0 @ 0x90100000
+stm32usbdfu.js:862 Erasing. sector 3, page 1 @ 0x90102000
+stm32usbdfu.js:862 Erasing. sector 3, page 2 @ 0x90104000
+stm32usbdfu.js:862 Erasing. sector 3, page 3 @ 0x90106000
+stm32usbdfu.js:862 Erasing. sector 3, page 4 @ 0x90108000
+stm32usbdfu.js:862 Erasing. sector 3, page 5 @ 0x9010a000
+stm32usbdfu.js:862 Erasing. sector 3, page 6 @ 0x9010c000
+stm32usbdfu.js:862 Erasing. sector 3, page 7 @ 0x9010e000
+stm32usbdfu.js:862 Erasing. sector 3, page 8 @ 0x90110000
+stm32usbdfu.js:862 Erasing. sector 3, page 9 @ 0x90112000
+stm32usbdfu.js:862 Erasing. sector 3, page 10 @ 0x90114000
+stm32usbdfu.js:862 Erasing. sector 3, page 11 @ 0x90116000
+stm32usbdfu.js:862 Erasing. sector 3, page 12 @ 0x90118000
+stm32usbdfu.js:862 Erasing. sector 3, page 13 @ 0x9011a000
+stm32usbdfu.js:862 Erasing. sector 3, page 14 @ 0x9011c000
+stm32usbdfu.js:862 Erasing. sector 3, page 15 @ 0x9011e000
+stm32usbdfu.js:862 Erasing. sector 3, page 16 @ 0x90120000
+stm32usbdfu.js:862 Erasing. sector 3, page 17 @ 0x90122000
+stm32usbdfu.js:862 Erasing. sector 3, page 18 @ 0x90124000
+stm32usbdfu.js:862 Erasing. sector 3, page 19 @ 0x90126000
+stm32usbdfu.js:862 Erasing. sector 3, page 20 @ 0x90128000
+stm32usbdfu.js:862 Erasing. sector 3, page 21 @ 0x9012a000
+stm32usbdfu.js:862 Erasing. sector 3, page 22 @ 0x9012c000
+stm32usbdfu.js:862 Erasing. sector 3, page 23 @ 0x9012e000
+stm32usbdfu.js:862 Erasing. sector 3, page 24 @ 0x90130000
+stm32usbdfu.js:862 Erasing. sector 3, page 25 @ 0x90132000
+stm32usbdfu.js:862 Erasing. sector 3, page 26 @ 0x90134000
+stm32usbdfu.js:862 Erasing. sector 3, page 27 @ 0x90136000
+stm32usbdfu.js:862 Erasing. sector 3, page 28 @ 0x90138000
+stm32usbdfu.js:862 Erasing. sector 3, page 29 @ 0x9013a000
+stm32usbdfu.js:862 Erasing. sector 3, page 30 @ 0x9013c000
+stm32usbdfu.js:862 Erasing. sector 3, page 31 @ 0x9013e000
+stm32usbdfu.js:862 Erasing. sector 3, page 32 @ 0x90140000
+stm32usbdfu.js:862 Erasing. sector 3, page 33 @ 0x90142000
+stm32usbdfu.js:862 Erasing. sector 3, page 34 @ 0x90144000
+stm32usbdfu.js:862 Erasing. sector 3, page 35 @ 0x90146000
+stm32usbdfu.js:862 Erasing. sector 3, page 36 @ 0x90148000
+stm32usbdfu.js:862 Erasing. sector 3, page 37 @ 0x9014a000
+stm32usbdfu.js:862 Erasing. sector 3, page 38 @ 0x9014c000
+stm32usbdfu.js:862 Erasing. sector 3, page 39 @ 0x9014e000
+stm32usbdfu.js:862 Erasing. sector 3, page 40 @ 0x90150000
+stm32usbdfu.js:862 Erasing. sector 3, page 41 @ 0x90152000
+stm32usbdfu.js:862 Erasing. sector 3, page 42 @ 0x90154000
+stm32usbdfu.js:862 Erasing. sector 3, page 43 @ 0x90156000
+stm32usbdfu.js:862 Erasing. sector 3, page 44 @ 0x90158000
+stm32usbdfu.js:862 Erasing. sector 3, page 45 @ 0x9015a000
+stm32usbdfu.js:862 Erasing. sector 3, page 46 @ 0x9015c000
+stm32usbdfu.js:862 Erasing. sector 3, page 47 @ 0x9015e000
+stm32usbdfu.js:862 Erasing. sector 3, page 48 @ 0x90160000
+stm32usbdfu.js:862 Erasing. sector 3, page 49 @ 0x90162000
+stm32usbdfu.js:862 Erasing. sector 3, page 50 @ 0x90164000
+stm32usbdfu.js:862 Erasing. sector 3, page 51 @ 0x90166000
+stm32usbdfu.js:862 Erasing. sector 3, page 52 @ 0x90168000
+stm32usbdfu.js:862 Erasing. sector 3, page 53 @ 0x9016a000
+stm32usbdfu.js:862 Erasing. sector 3, page 54 @ 0x9016c000
+stm32usbdfu.js:862 Erasing. sector 3, page 55 @ 0x9016e000
+stm32usbdfu.js:862 Erasing. sector 3, page 56 @ 0x90170000
+stm32usbdfu.js:862 Erasing. sector 3, page 57 @ 0x90172000
+stm32usbdfu.js:862 Erasing. sector 3, page 58 @ 0x90174000
+stm32usbdfu.js:862 Erasing. sector 3, page 59 @ 0x90176000
+stm32usbdfu.js:862 Erasing. sector 3, page 60 @ 0x90178000
+stm32usbdfu.js:862 Erasing. sector 3, page 61 @ 0x9017a000
+stm32usbdfu.js:862 Erasing. sector 3, page 62 @ 0x9017c000
+stm32usbdfu.js:862 Erasing. sector 3, page 63 @ 0x9017e000
+stm32usbdfu.js:862 Erasing. sector 3, page 64 @ 0x90180000
+stm32usbdfu.js:862 Erasing. sector 3, page 65 @ 0x90182000
+stm32usbdfu.js:862 Erasing. sector 3, page 66 @ 0x90184000
+stm32usbdfu.js:862 Erasing. sector 3, page 67 @ 0x90186000
+stm32usbdfu.js:862 Erasing. sector 3, page 68 @ 0x90188000
+stm32usbdfu.js:862 Erasing. sector 3, page 69 @ 0x9018a000
+stm32usbdfu.js:862 Erasing. sector 3, page 70 @ 0x9018c000
+stm32usbdfu.js:862 Erasing. sector 3, page 71 @ 0x9018e000
+stm32usbdfu.js:862 Erasing. sector 3, page 72 @ 0x90190000
+stm32usbdfu.js:862 Erasing. sector 3, page 73 @ 0x90192000
+stm32usbdfu.js:862 Erasing. sector 3, page 74 @ 0x90194000
+stm32usbdfu.js:862 Erasing. sector 3, page 75 @ 0x90196000
+stm32usbdfu.js:862 Erasing. sector 3, page 76 @ 0x90198000
+stm32usbdfu.js:862 Erasing. sector 3, page 77 @ 0x9019a000
+stm32usbdfu.js:862 Erasing. sector 3, page 78 @ 0x9019c000
+stm32usbdfu.js:862 Erasing. sector 3, page 79 @ 0x9019e000
+stm32usbdfu.js:862 Erasing. sector 3, page 80 @ 0x901a0000
+stm32usbdfu.js:862 Erasing. sector 3, page 81 @ 0x901a2000
+stm32usbdfu.js:862 Erasing. sector 3, page 82 @ 0x901a4000
+stm32usbdfu.js:862 Erasing. sector 3, page 83 @ 0x901a6000
+stm32usbdfu.js:862 Erasing. sector 3, page 84 @ 0x901a8000
+stm32usbdfu.js:862 Erasing. sector 3, page 85 @ 0x901aa000
+stm32usbdfu.js:862 Erasing. sector 3, page 86 @ 0x901ac000
+stm32usbdfu.js:862 Erasing. sector 3, page 87 @ 0x901ae000
+stm32usbdfu.js:862 Erasing. sector 3, page 88 @ 0x901b0000
+stm32usbdfu.js:862 Erasing. sector 3, page 89 @ 0x901b2000
+stm32usbdfu.js:862 Erasing. sector 3, page 90 @ 0x901b4000
+stm32usbdfu.js:862 Erasing. sector 3, page 91 @ 0x901b6000
+stm32usbdfu.js:862 Erasing. sector 3, page 92 @ 0x901b8000
+stm32usbdfu.js:862 Erasing. sector 3, page 93 @ 0x901ba000
+stm32usbdfu.js:862 Erasing. sector 3, page 94 @ 0x901bc000
+stm32usbdfu.js:862 Erasing. sector 3, page 95 @ 0x901be000
+stm32usbdfu.js:862 Erasing. sector 3, page 96 @ 0x901c0000
+stm32usbdfu.js:862 Erasing. sector 3, page 97 @ 0x901c2000
+stm32usbdfu.js:862 Erasing. sector 3, page 98 @ 0x901c4000
+stm32usbdfu.js:862 Erasing. sector 3, page 99 @ 0x901c6000
+stm32usbdfu.js:862 Erasing. sector 3, page 100 @ 0x901c8000
+stm32usbdfu.js:862 Erasing. sector 3, page 101 @ 0x901ca000
+stm32usbdfu.js:862 Erasing. sector 3, page 102 @ 0x901cc000
+stm32usbdfu.js:862 Erasing. sector 3, page 103 @ 0x901ce000
+stm32usbdfu.js:862 Erasing. sector 3, page 104 @ 0x901d0000
+stm32usbdfu.js:862 Erasing. sector 3, page 105 @ 0x901d2000
+stm32usbdfu.js:862 Erasing. sector 3, page 106 @ 0x901d4000
+stm32usbdfu.js:862 Erasing. sector 3, page 107 @ 0x901d6000
+stm32usbdfu.js:862 Erasing. sector 3, page 108 @ 0x901d8000
+stm32usbdfu.js:862 Erasing. sector 3, page 109 @ 0x901da000
+stm32usbdfu.js:862 Erasing. sector 3, page 110 @ 0x901dc000
+stm32usbdfu.js:862 Erasing. sector 3, page 111 @ 0x901de000
+stm32usbdfu.js:862 Erasing. sector 3, page 112 @ 0x901e0000
+stm32usbdfu.js:862 Erasing. sector 3, page 113 @ 0x901e2000
+stm32usbdfu.js:862 Erasing. sector 3, page 114 @ 0x901e4000
+stm32usbdfu.js:862 Erasing. sector 3, page 115 @ 0x901e6000
+stm32usbdfu.js:862 Erasing. sector 3, page 116 @ 0x901e8000
+stm32usbdfu.js:862 Erasing. sector 3, page 117 @ 0x901ea000
+stm32usbdfu.js:862 Erasing. sector 3, page 118 @ 0x901ec000
+stm32usbdfu.js:862 Erasing. sector 3, page 119 @ 0x901ee000
+stm32usbdfu.js:862 Erasing. sector 3, page 120 @ 0x901f0000
+stm32usbdfu.js:862 Erasing. sector 3, page 121 @ 0x901f2000
+stm32usbdfu.js:862 Erasing. sector 3, page 122 @ 0x901f4000
+stm32usbdfu.js:862 Erasing. sector 3, page 123 @ 0x901f6000
+stm32usbdfu.js:862 Erasing. sector 3, page 124 @ 0x901f8000
+stm32usbdfu.js:862 Erasing. sector 3, page 125 @ 0x901fa000
+stm32usbdfu.js:862 Erasing. sector 3, page 126 @ 0x901fc000
+stm32usbdfu.js:862 Erasing. sector 3, page 127 @ 0x901fe000
+stm32usbdfu.js:878 Erase: complete
+stm32usbdfu.js:905 Writing data ...
+stm32usbdfu.js:965 Writing: done
+stm32usbdfu.js:979 Verifying data ...
+stm32usbdfu.js:573 Verification successful, matching: 716 bytes
+stm32usbdfu.js:568 Verification failed on byte: 0 expected: 0x11 received: 0x1
+stm32usbdfu.js:1045 Verification block 1 @ 0x901002d0, 64816 bytes, read back 64816 bytes
+stm32usbdfu.js:1060 Programming: FAILED
+stm32usbdfu.js:190 Released interface: 0
+stm32usbdfu.js:160 Device closed with Handle ID: 1
+stm32usbdfu.js:1096 Script finished after: 60.916 seconds
+firmware_flasher.js:509 [flashComplete] called, re-enabling controls...
+firmware_flasher.js:521 [flashComplete] controls re-enabled

@@ -1,0 +1,8 @@
+date_utc: 2026-09-26T23:49:17Z
+host: Linux 6.14.8-061408-generic x86_64
+dfu-util 0.11
+flash_base: 0x90000000  length: 0x200000
+group0: 0x90000000:0xDE000
+system: 0x900DE000:0x20000
+config: 0x900FE000:0x2000
+firmware: 0x90100000:0x100000

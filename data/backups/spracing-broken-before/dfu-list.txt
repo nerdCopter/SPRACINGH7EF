@@ -1,0 +1,8 @@
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=0200, devnum=47, cfg=1, intf=0, path="1-4", alt=0, name="@External Flash /0x90000000/111*8Kg,16*8Kg,1*8Kg,128*8Kg,0*8Ka", serial="1D0033001351303232373236"
