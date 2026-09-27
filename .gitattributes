@@ -1,3 +1,4 @@
 *.bin binary
-*.hex text eol=lf
+*.hex -text
+*.log -text
 *.sh text eol=lf
