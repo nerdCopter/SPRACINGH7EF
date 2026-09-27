@@ -60,6 +60,32 @@ While the board is powered with BIND held in bootloader mode, the LED flashes on
 
 The manual describes function 17 as "Erase system software on external flash". That is the same partition this project found blank on the broken board.
 
+## DFU interface details
+
+What `dfu-util` reported for both boards **[HW]**:
+
+| Item | Value |
+|---|---|
+| USB ID | `0483:df11` |
+| DFU version | 0x011A on the device (descriptor `ver=0200` in `dfu-util -l`) |
+| Alternate settings | one (`alt=0`), named `@External Flash /0x90000000/...`. Use `-a 0`. |
+| Transfer size | 1024 bytes per USB block |
+| Interface name | "External Flash" |
+| Erase | done by the bootloader while you download: writing 1 MiB to 0x90100000 first erases the 1 MiB range, then writes; writing 128 KiB to 0x900DE000 erases those 128 KiB first |
+| Timing | the whole backup script (two 2 MiB reads plus four partition reads, about 6 MiB) took 9.3 s. Write time was not measured. |
+
+`:leave` after an address (`-s 0x90100000:leave`) tells the bootloader to leave DFU and start running after the download. Without it the board stays in DFU so you can read back first.
+
+## Contents of the system partition
+
+On the factory board **[HW]**: data in the first 32,768 bytes (0x0000 to 0x7FFF); the remaining 96 KiB are 0xFF. It begins `01 00 30 4f c5 b5 00 00 7d a4 00 00 51 a3 00 00 35 a2 00 00 ...`. After the first eight bytes the values look like 32-bit little-endian program addresses (0xA47D, 0xA351, 0xA235, ...). No text strings were found in it. Its exact role is **[UNV]**; the manual calls it "system software" and marks it "do not erase".
+
+## The chip's internal flash and boot pins
+
+- The STM32H730 has only 128 KiB of internal flash. It holds the bootloader and nothing else of the firmware. **[SRC]** (Betaflight's H730 target header says the chip "only has one flash page which contains the bootloader")
+- The bootloader configures the external flash's OctoSPI pins before the firmware starts: PB2 (clock), PB10 (chip select), PE7, PE8, PE9, PE10 (data lines IO4 to IO7). The firmware must not reconfigure them. Betaflight's board config reserves these pins. **[SRC]** ([config diff](../data/evidence/bf-config-diff-H7EF-vs-H7RF.txt))
+- The H7EF has a second, separate flash chip on SPI6 (an M25P16, chip select PD7) used for blackbox logs. **[SRC]** That chip is not the one the DFU shows.
+
 ## Manual `dfu-util` commands (from the manual, p.16)
 
 These are the manual's own recipes for the H7RF. They work on the H7EF because the bootloader and flash map are the same ([H7EF vs H7RF](08-h7ef-vs-h7rf.md)). **[SRC]**; firmware write and read-back **[HW]** (used with `-a 0`).
@@ -74,7 +100,7 @@ These are the manual's own recipes for the H7RF. They work on the H7EF because t
 | Write system software | `dfu-util -D system.bin -s 0x900DE000:leave` |
 
 The manual gives no read command for the system partition, group 0, or the whole chip. The same `-U ... -s address:length`
-form worked for all of them on the real boards, including the whole chip in one read: `dfu-util -a 0 -s 0x90000000:0x200000 -U full.bin` (9 seconds). **[HW]**
+form worked for all of them on the real boards, including the whole chip in one read: `dfu-util -a 0 -s 0x90000000:0x200000 -U full.bin`. **[HW]**
 
 The manual's `SPRacingH7RF.bin` system file is not published in the `spracing/betaflight` release assets. The only source found is a dump of a good board ([data/backups/spracing-factory-A1/system.bin](../data/backups/spracing-factory-A1/system.bin)). **[HW]**
 

@@ -7,7 +7,7 @@ One row per important claim, with how we know. When you learn something new, add
 | # | Claim | Tag | Evidence |
 |---|---|---|---|
 | 1 | External flash is 2 MiB at 0x90000000 with groups `111*8K, 16*8K, 1*8K, 128*8K` | [HW] | `dfu-list.txt` in [factory backup](../data/backups/spracing-factory-A1/dfu-list.txt); identical on the broken board |
-| 2 | The whole flash can be read in one `dfu-util -U` call (2 MiB, about 9 s) | [HW] | [backup script](../scripts/spracingh7ef-flash-backup.sh) PASS on two boards; two identical reads each |
+| 2 | The whole flash can be read in one `dfu-util -U` call (2 MiB). The full backup script took 9.3 s for about 6 MiB of reads | [HW] | [backup script](../scripts/spracingh7ef-flash-backup.sh) PASS on two boards; two identical reads each |
 | 3 | Reads are stable: two full backups of the factory board are byte-identical | [HW] | [A2 checksums](../data/backups/spracing-factory-A2.SHA256SUMS) equal A1's `full.bin` checksum |
 | 4 | Factory board system partition holds 32,768 bytes of data | [HW] | [`system.bin`](../data/backups/spracing-factory-A1/system.bin), last non-0xFF byte at offset 0x7FFF |
 | 5 | Broken board's system partition was all 0xFF | [HW] | [`spracing-broken-before/system.bin`](../data/backups/spracing-broken-before/system.bin) |
@@ -29,6 +29,11 @@ One row per important claim, with how we know. When you learn something new, add
 | 21 | Whether the system partition contains per-board data | [UNV] | it worked when copied from another board |
 | 22 | Works on macOS and Windows | [UNV] | not tried |
 | 23 | No public source exists for this H730 bootloader | [INF] | the `spracing` GitHub organisation lists `spracing/ssbl`, which targets the H750; nothing else found |
+| 24 | `spracingh7ef-repair.sh` diagnoses and writes correctly | [INF] | 9 scenarios against a simulated `dfu-util` using the real dumps as boards; not run on real hardware |
+| 25 | The system-partition write that the repair script performs repaired a real board | [HW] | [case study](07-case-study.md), step 8 (same `dfu-util` command) |
+| 26 | DFU: one alt setting, transfer size 1024, DFU version 0x011A, bootloader erases during download | [HW] | `dfu-util` output on both boards ([flash map doc](02-flash-map-and-bootloader.md#dfu-interface-details)) |
+| 27 | The Betaflight image is built as: link, unpatched bin, pad to 1 MiB, patch MD5, hex from bin, bin removed | [SRC] | [build log](../data/evidence/betaflight-build-log-spracingh7ef.txt) |
+| 28 | Firmware write time | [UNV] | not measured |
 
 ## Open questions worth testing next
 
@@ -36,3 +41,4 @@ One row per important claim, with how we know. When you learn something new, add
 2. Count the slow red flashes on a board with a blank system partition. (settles #15 for this case)
 3. Does the CPU ROM DFU (function 4) allow reading the internal flash? (would settle #17)
 4. Why did the first repaired boot take three re-plugs? (#18)
+5. Run `spracingh7ef-repair.sh --dry-run` and then the real repair on a board in DFU mode. (settles #24; a safe first test is a board that is already fixed: it should report "Nothing to fix")

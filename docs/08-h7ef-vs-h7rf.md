@@ -31,6 +31,10 @@ From the Betaflight board configs, `configs/SPRO/SPRACINGH7EF/config.h` against 
 | Buttons | both on PD10 | both on PC14 |
 | I2C, UART pins, beeper, LED strip pin | differ (see diff) | differ |
 
+## RF-only statements in the manual
+
+The manual says early H7RF firmware required a formatted SD card for config storage, and that the status LED shows red if the SD card is not formatted or supported (p.17). The H7EF has no SD card in its Betaflight config, so this does not apply to it. **[SRC]** The manual's pinouts, receiver, and SD-card chapters are also RF-only.
+
 ## Identity strings found in the flash images
 
 | Image | Strings |

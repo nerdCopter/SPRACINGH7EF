@@ -10,6 +10,18 @@ This repo covers this one board's hardware only: flash layout, bootloader, backu
 
 **New here?** Install the tools first: [Prerequisites](docs/00-prerequisites.md) (needs `dfu-util`).
 
+## The quick fix (one board, stuck in bootloader mode)
+
+If your board shows solid green and blue LEDs with a flashing red LED and never becomes a COM port, its **system partition** is probably blank. This repo holds a good copy.
+
+1. Install `dfu-util` ([prerequisites](docs/00-prerequisites.md)).
+2. Put the board in bootloader DFU mode: unplug USB, hold BIND, plug in USB, release BIND when the LED blinks slowly.
+3. Run: `./scripts/spracingh7ef-repair.sh` and answer `YES` when it shows its plan.
+4. Unplug USB (do not hold BIND) and plug it in again. It may need several re-plugs before it starts.
+
+The script first saves the board's current flash, checks what is wrong, and writes only what is needed. Full explanation and the manual alternatives: [Repair and restore](docs/05-repair-restore.md).
+**Status:** the same write, done with `dfu-util` by hand, repaired a real board **[HW]**. The script itself was tested against a simulated board using real dumps, not yet on real hardware **[INF]**.
+
 ## Which situation are you in?
 
 | Your situation | Go to |
@@ -32,6 +44,7 @@ This repo covers this one board's hardware only: flash layout, bootloader, backu
 | Bootloader USB mode | hold BIND while plugging in USB, release when the LED blinks slowly; shows as USB ID `0483:df11` |
 | Normal running board | USB ID `0483:5740` (virtual COM port) |
 | Tool | `dfu-util` 0.11 (see [prerequisites](docs/00-prerequisites.md)) |
+| Fix a stuck board | [`scripts/spracingh7ef-repair.sh`](scripts/spracingh7ef-repair.sh) |
 | Backup command | [`scripts/spracingh7ef-flash-backup.sh`](scripts/spracingh7ef-flash-backup.sh) (read-only) |
 | Restore command | [`scripts/spracingh7ef-flash-restore.sh`](scripts/spracingh7ef-flash-restore.sh) (writes) |
 | Factory-board backup | [`data/backups/spracing-factory-A1`](data/backups/spracing-factory-A1) |
@@ -64,11 +77,21 @@ Full table with sources: [flash map and bootloader](docs/02-flash-map-and-bootlo
 
 | Folder | Contents |
 |---|---|
-| [`scripts/`](scripts) | backup and restore scripts |
+| [`scripts/`](scripts) | three scripts, see the table below |
 | [`tools/`](tools) | [`exst_hex_to_bin.py`](tools/exst_hex_to_bin.py) (check a hex, make a bin), [`exst_check_bin.py`](tools/exst_check_bin.py) (check a bin or dump), [`exst_hexmap.py`](tools/exst_hexmap.py) (list hex blocks) |
 | [`data/backups/`](data/backups) | real flash dumps of a factory board, the broken board before repair, and after repair |
 | [`data/reference-images/`](data/reference-images) | Betaflight images used for repair and tests |
 | [`data/evidence/`](data/evidence) | raw logs and diffs behind the claims |
+
+## Which script do I use?
+
+| Script | Use it when | Writes to the board? |
+|---|---|---|
+| [`spracingh7ef-repair.sh`](scripts/spracingh7ef-repair.sh) | You have **one** board and it is stuck in bootloader mode. It uses the factory data stored in this repo. | yes, only what it finds wrong, after saving the current flash and asking `YES` |
+| [`spracingh7ef-flash-backup.sh`](scripts/spracingh7ef-flash-backup.sh) | You want a copy of a board's whole flash, to check a stored copy (`check`), or to compare a board with a copy (`verify`). | **no**, read-only |
+| [`spracingh7ef-flash-restore.sh`](scripts/spracingh7ef-flash-restore.sh) | You have your own backup of a board and want to write parts of it (or all firmware and system) back. Needs a backup folder made by the backup script. | yes, after checking the backup and asking `YES` |
+
+If unsure, run the backup script first. It cannot change anything.
 
 ## How to read the tags
 

@@ -16,7 +16,7 @@ This repo will grow. Keep it accurate and easy to follow.
 8. **Keep text plain.** One fact per sentence. Explain a term the first time or link the [glossary](11-sources-and-glossary.md).
 9. **Do not add other firmware or configurator work** here. This repo is about this board's hardware: flash layout, bootloader, backup, repair, restore, and Betaflight firmware.
 
-## Before you publish
+## Before you commit
 
-- Check redistribution rights for `data/backups/*/system.bin` and the reference images before making the repo public. No license has been chosen.
+- This repo has no license on purpose (repairing and understanding owned hardware). Do not add third-party firmware beyond what repairs the board.
 - Run `sha256sum -c SHA256SUMS` inside each backup directory (or `./scripts/spracingh7ef-flash-backup.sh check <dir>`), and `cd data && sha256sum -c SHA256SUMS` for every stored file. Regenerate `data/SHA256SUMS` after adding files.

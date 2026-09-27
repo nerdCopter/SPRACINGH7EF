@@ -3,7 +3,7 @@
 [Back to index](../README.md)
 
 Install and check these before you start. **Keep this list current:** when a new step needs a new tool, add it here
-([how to add findings](12-contributing-findings.md)). The two scripts also check their own tools and print an install hint if one is missing.
+([how to add findings](12-contributing-findings.md)). The three scripts also check their own tools and print an install hint if one is missing.
 
 ## Hardware
 
@@ -12,7 +12,7 @@ Install and check these before you start. **Keep this list current:** when a new
 | The SP Racing H7EF board | the thing you are working on | |
 | USB cable that carries data | connect the board to the computer | Some cables only charge. If the board never shows up in `lsusb`, try another cable. |
 | Access to the **BIND** button | enter bootloader DFU mode | see [enter DFU mode](02-flash-map-and-bootloader.md#enter-bootloader-dfu-mode) |
-| A second, working H7EF board (recommended) | source of a backup, if none exists yet | This repo already holds one factory backup: [`data/backups/spracing-factory-A1`](../data/backups/spracing-factory-A1) |
+| A second, working H7EF board (optional) | a source for a fresh backup | Not needed: this repo already holds a factory backup ([`data/backups/spracing-factory-A1`](../data/backups/spracing-factory-A1)) that [`spracingh7ef-repair.sh`](../scripts/spracingh7ef-repair.sh) uses |
 | About 5 MB of free disk per backup | each backup directory is about 4 MB | measured 4.1 MB |
 
 ## Software
@@ -21,10 +21,10 @@ Install and check these before you start. **Keep this list current:** when a new
 |---|---|---|---|---|
 | **`dfu-util`** | reading and writing the board over USB | 0.11 | `sudo apt install dfu-util` | `dfu-util --version` |
 | `bash` | both scripts | (Linux system bash) | preinstalled | `bash --version` |
-| GNU coreutils, diffutils, grep: `sha256sum cmp dd tr tail head stat mktemp chmod mkdir mv rm sort wc date uname grep` | both scripts | (Linux system tools) | preinstalled | the scripts check for each one |
+| GNU coreutils, diffutils, grep: `sha256sum md5sum od cmp dd tr tail head stat cut mktemp chmod mkdir mv rm sort wc date uname grep` | all three scripts | (Linux system tools) | preinstalled | the scripts check for each one |
 | `python3` (standard library only) | the three helper tools in [`tools/`](../tools) | 3.x (tested with 3.12.3) | `sudo apt install python3` | `python3 --version` |
 | `trash` (optional) | scripts move temp files to trash instead of deleting | not needed | `sudo apt install trash-cli` | `command -v trash` |
-| Betaflight Configurator (optional) | confirm the repaired board boots and shows gyro/accel | not version-tested | see betaflight.com | it opens and connects |
+| Betaflight Configurator (optional) | confirm the repaired board boots and shows gyro/accel | not version-tested. Must be a version that supports H730 EXST boards (the manual says releases after Betaflight 4.3) | see betaflight.com | it opens and connects |
 
 Other distributions: Fedora `sudo dnf install dfu-util`, Arch `sudo pacman -S dfu-util`. **[UNV]** (install commands not run in this project).
 

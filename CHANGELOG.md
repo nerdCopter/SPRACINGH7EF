@@ -9,4 +9,7 @@
 - Added scripts: `spracingh7ef-flash-backup.sh` (backup, check, verify) and `spracingh7ef-flash-restore.sh` (with `--system-only`, `--dry-run`). Both check for `dfu-util` and other tools.
 - Added tools: `exst_hex_to_bin.py`, `exst_check_bin.py`, `exst_hexmap.py`.
 - Added data: factory board backup (A1; A2 as checksums), broken board before and after repair, reference Betaflight images, evidence logs.
+- Added `spracingh7ef-repair.sh`, the one-command fix for a single board (simulated-tested; see evidence ledger #24).
+- Added DFU interface details, system-partition contents, OctoSPI boot pins, Betaflight build steps and build log.
+- Corrected timing claims (9.3 s is the whole backup script, not one read).
 - Result recorded: a broken board was repaired by restoring the system partition from a factory board.

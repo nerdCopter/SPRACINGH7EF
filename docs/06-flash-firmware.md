@@ -29,7 +29,7 @@ The manual's own command is the same with `:leave` at the end (`-s 0x90100000:le
 
 ## Result on the real board
 
-Writing the 1 MiB Betaflight image took a few seconds, returned no error, and read back byte-identical. **[HW]** The board did not start until its system partition was also restored ([case study](07-case-study.md)).
+Writing the 1 MiB Betaflight image returned no error and read back byte-identical (write time was not measured). **[HW]** The board did not start until its system partition was also restored ([case study](07-case-study.md)).
 
 ## Configurator programs
 

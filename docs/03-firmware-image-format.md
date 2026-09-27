@@ -50,6 +50,21 @@ python3 tools/exst_hex_to_bin.py path/to/image.hex path/to/image.bin
 The tool refuses anything that is not one 1 MiB block at 0x90100000 with a correct hash. It exits with an error and writes nothing. **[HW]**
 It accepts the Betaflight hexes in [`data/reference-images`](../data/reference-images) and rejects the three-block hex described below.
 
+## How the Betaflight build makes the image
+
+From the owner's build of Betaflight 2026.12.0-alpha (git `e5071ce4e`), target `STM32H730_SPRACINGH7EF`. Full log: [`data/evidence/betaflight-build-log-spracingh7ef.txt`](../data/evidence/betaflight-build-log-spracingh7ef.txt). **[SRC]** (build output as pasted)
+
+| Step | What the log shows |
+|---|---|
+| 1. Link | Code goes into region `OCTOSPI1_CODE`, 1,048,512 bytes available; 585,405 used (55.83%). Region `EXST_HASH` is 64 bytes (100% used). |
+| 2. Make an unpatched `.bin` from the program | `..._UNPATCHED.bin` |
+| 3. Pad it to 1 MiB with zeros | two `dd` steps, 1,048,576 bytes each |
+| 4. Compute the MD5 and patch it into the last 16 bytes | last 16 bytes of the final image: `e3ba896d f9c9e838 8a0f829f e178c440` |
+| 5. Put the hash block back into the program file and build the `.hex` from the patched `.bin` at address 0x90100000 | log line "VMA Adjust 0x90100000" |
+| 6. The `.bin` is removed | not present in `obj/` afterwards |
+
+Memory layout in the program file: interrupt vector table at 0x90100000 (0x2CC bytes), code from 0x901002D0, hash section at 0x901FFFC0 (0x40 bytes), entry point 0x9016ED01. The firmware runs directly from the external flash (memory-mapped through the OctoSPI peripheral); the chip's internal flash holds only the bootloader. **[SRC]**
+
 ## What a bad image looks like
 
 An image is **not** valid for this board if the hex has more than one block, does not start at 0x90100000, is not exactly 1 MiB, or fails the hash rule.

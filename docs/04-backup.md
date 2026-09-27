@@ -15,7 +15,7 @@ A backup is a complete copy of the board's external flash, all 2 MiB. The backup
 
 Use a **new** folder name. The script refuses to write into a folder that already holds a backup.
 
-3. Wait about 10 seconds. The last line must be:
+3. Wait. The whole script took 9.3 seconds on the real boards. The last line must be:
 
 ```
 PASS: backup complete (2 identical full reads, 4 identical direct reads, self-check OK)

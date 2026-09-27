@@ -15,6 +15,55 @@ Use this when a board will not start its firmware. Everything here was done on t
 If your board matches, the system partition is the likely cause. **[HW]** (restoring it fixed the board). Why it was blank is **[INF]** ([case study](07-case-study.md)).
 If the board does not show up in `dfu-util -l` even with BIND held, this guide cannot help ([troubleshooting](09-troubleshooting.md)).
 
+## The primary fix (one board)
+
+Most people have one board and no second board to copy from. Use the stored factory data:
+
+```
+./scripts/spracingh7ef-repair.sh
+```
+
+With the board in [DFU mode](02-flash-map-and-bootloader.md#enter-bootloader-dfu-mode) it does this:
+
+1. Checks that the stored data matches its checksums and that the firmware image passes the [hash rule](03-firmware-image-format.md).
+2. Stops unless exactly one DFU device is present.
+3. Reads the whole flash twice (must match) and saves it in `data/repair-backups/<time>/` so the before-state is never lost.
+4. Diagnoses each partition and prints the result.
+5. Plans only what is needed: writes the system partition if it is blank; writes firmware only if it is blank or fails its hash, or when you pass `--firmware`. It never writes config or group 0.
+6. Shows the plan and asks you to type `YES`.
+7. Writes, reads back, and prints PASS or FAIL for each write.
+
+| Option | Effect |
+|---|---|
+| `--dry-run` | diagnose and show the plan, write nothing |
+| `--firmware bf-alpha` (default) | Betaflight 2026.12.0-alpha for SPRACINGH7EF. This image was flashed and read back on a real board. It is an alpha build: fine for testing, use a current stable build for flying. |
+| `--firmware factory` | the firmware read from a factory board (strings show 4.3.0). It booted on that factory board; it was not tried on the repaired board. |
+| `--firmware <file.bin>` | your own image. Must be a valid 1 MiB [EXST image](03-firmware-image-format.md) built for SPRACINGH7EF. |
+| `--force-system` | overwrite a system partition that has other data (not blank and not the stored copy) |
+| `--yes` | do not ask for YES |
+
+**Status.** The system-partition write it performs is the same `dfu-util` command that repaired the real board **[HW]**. The script was tested against a simulated board using the real dumps: blank system, blank firmware, explicit firmware choice, unknown system data, two devices, dry-run, invalid image, answering NO, and "nothing to fix". It has **not** yet run on real hardware **[INF]**.
+
+## Which fix for which problem
+
+Different problems need different ranges. This table says what to write for each.
+
+| What is wrong | Range | Fix | Tag |
+|---|---|---|---|
+| System partition blank (board stuck in DFU with a red error blink, valid firmware present) | 0x900DE000, 128 KiB | Write the factory `system.bin` only. Firmware untouched. `spracingh7ef-repair.sh`, or `spracingh7ef-flash-restore.sh <backup> --system-only`, or `dfu-util -a 0 -s 0x900DE000 -D system.bin` | [HW] (manual command) |
+| Firmware blank, corrupt, or wrong | 0x90100000, 1 MiB | Write a valid EXST image ([flash firmware](06-flash-firmware.md)). System untouched. | [HW] |
+| System **and** firmware both bad | both ranges | `spracingh7ef-repair.sh` (writes both), or the two `dfu-util` commands in order: system, then firmware | [INF] for the script; commands [HW] |
+| Settings wrong or corrupt | 0x900FE000, 8 KiB | Erase config with bootloader function 6, or write zeros with the manual's `ZERO_8K.bin` recipe. It is blank on a factory board. The board then starts with defaults. | [SRC] (manual p.16); not run |
+| Group 0 (888 KiB) | 0x90000000 | Nothing to fix: it was blank on both boards. Do not write it unless your own backup has data there. | [HW] |
+| Everything unknown, and you have **your own earlier backup of this same board** | whole flash | Write back the partitions from your backup: `spracingh7ef-flash-restore.sh <backup> --with-config --with-group0` | [INF] (script simulated; the parts are [HW]) |
+| Board does not appear in `dfu-util -l` at all | the CPU's own bootloader | Not fixable here ([limits](#limits)) | [INF] |
+
+**Full-board restore vs range fix.** A range fix (system only, or firmware only) changes one region and leaves your settings alone. A full-board restore rewrites every partition from a backup of *that same board*, so it also brings back your config. A backup from a *different* board should not be used to overwrite config or group 0. Use it only for system (and firmware if you want that image).
+
+## Manual steps with two boards (backup of a working board)
+
+The following steps are what was actually done on 2026-09-26, using a second, working board as the source. If you have only one board, use the primary fix above.
+
 ## Steps
 
 1. **Install the tools** ([prerequisites](00-prerequisites.md)) and read the [safety rules](01-safety-rules.md).

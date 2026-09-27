@@ -1,0 +1,51 @@
+# Build log of the Betaflight image flashed in this project (pasted by the owner, 2026-09-26).
+# Source tree: Betaflight master, version 2026.12.0-alpha, git hash e5071ce4e, target STM32H730_SPRACINGH7EF.
+# The build makes a .bin, builds the .hex from it, then removes the .bin.
+
+Linking STM32H730_SPRACINGH7EF_e5071ce4e 
+Memory region         Used Size  Region Size  %age Used
+        ITCM_RAM:       19664 B        64 KB     30.00%
+        DTCM_RAM:       25736 B       128 KB     19.64%
+             RAM:      103540 B       320 KB     31.60%
+          D2_RAM:           0 B        32 KB      0.00%
+          D3_RAM:           0 B        16 KB      0.00%
+     BACKUP_SRAM:           0 B         4 KB      0.00%
+       MEMORY_B1:           0 B          0 B
+        OCTOSPI2:           0 B       256 MB      0.00%
+        OCTOSPI1:           0 B       256 MB      0.00%
+   OCTOSPI1_CODE:      585405 B    1048512 B     55.83%
+       EXST_HASH:          64 B         64 B    100.00%
+   text       data        bss        dec        hex    filename
+ 577469       7996     121336     706801      ac8f1    ./obj/main/betaflight_STM32H730_SPRACINGH7EF_e5071ce4e.elf
+Creating BIN (without checksum) ./obj/main/betaflight_STM32H730_SPRACINGH7EF_e5071ce4e_UNPATCHED.bin 
+Creating EXST ./obj/betaflight_2026.12.0-alpha_STM32H730_SPRACINGH7EF_e5071ce4e.bin 
+1024+0 records in
+2048+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.00736195 s, 142 MB/s
+2048+0 records in
+2048+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.00581338 s, 180 MB/s
+Generating MD5 hash of binary 
+Patching MD5 hash into binary 
+000ffff0: e3ba 896d f9c9 e838 8a0f 829f e178 c440  ...m...8.....x.@
+Extracting HASH section from unpatched EXST elf ./obj/main/betaflight_STM32H730_SPRACINGH7EF_e5071ce4e.elf 
+arm-none-eabi-objcopy ... --dump-section .exst_hash=./obj/main/STM32H730_SPRACINGH7EF_e5071ce4e/exst_hash_section.bin -j .exst_hash
+(objcopy warnings: "empty loadable segment detected" at vaddr 0x90100000, 0, 0x9018c35c, 0x200002cc, 0x24011c80; not an error)
+rm ./obj/main/betaflight_STM32H730_SPRACINGH7EF_e5071ce4e_EXST.elf.tmp
+Patching MD5 hash into HASH section 
+Patching updated HASH section into ./obj/main/betaflight_STM32H730_SPRACINGH7EF_e5071ce4e_EXST.elf 
+arm-none-eabi-objcopy ... --update-section .exst_hash=./obj/main/STM32H730_SPRACINGH7EF_e5071ce4e/exst_hash_section.bin
+
+Section Headers (selected):
+  [ 1] .isr_vector       PROGBITS  90100000  off 001000  size 0002cc
+  [ 3] .text             PROGBITS  901002d0  off 0012d0  size 0873bc
+  [ 4] .tcm_code         PROGBITS  00000000  off 089000  size 004cd0
+  [ 5] .ARM              ARM_EXIDX 9018c35c  off 08e35c  size 000008
+  [ 6] .pg_registry      PROGBITS  9018c364  off 08e364  size 000a10
+  [ 7] .pg_resetdata     PROGBITS  9018cd74  off 08ed74  size 00024d
+  [ 8] .data             PROGBITS  200002cc  off 08f2cc  size 001c38
+  [22] .exst_hash        PROGBITS  901fffc0  off 091fc0  size 000040
+Entry point 0x9016ed01
+Program headers (selected): LOAD 0x90100000 filesz 0x8768c (code); LOAD 0x901fffc0 filesz 0x40 (hash)
+
+Creating EXST HEX from patched EXST BIN ./obj/betaflight_2026.12.0-alpha_STM32H730_SPRACINGH7EF_e5071ce4e.bin, VMA Adjust 0x90100000 

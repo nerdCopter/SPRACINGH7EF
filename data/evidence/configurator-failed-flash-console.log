@@ -1,4 +1,4 @@
-/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/dist/support/preload.js:481 Electron: chrome API polyfills loaded (serial, storage, usb, app)
+<workdir>/dist/support/preload.js:481 Electron: chrome API polyfills loaded (serial, storage, usb, app)
 main.html:101 [OK] jQuery loaded
 main.html:109 [OK] i18next loaded
 main.html:116 [OK] i18next-xhr-backend loaded
@@ -12,14 +12,14 @@ main.js:42 Presets file location: /tmp
 main.js:88 doc ready CONFIGURATOR.version 0.4.3
 main.js:90 doc ready CONFIGURATOR.max_msp 1.54.0
 localization.js:170 Detected locale en-US
-/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next::backendConnector: loaded namespace messages for language en Object
-/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next: languageChanged en
-/home/ndronet/SYNC/nerdCopter-GIT/worktrees/fix/dfu-external-flash-size-gate/node_modules/i18next/dist/cjs/i18next.js:207 i18next: initialized Object
+<workdir>/node_modules/i18next/dist/cjs/i18next.js:207 i18next::backendConnector: loaded namespace messages for language en Object
+<workdir>/node_modules/i18next/dist/cjs/i18next.js:207 i18next: languageChanged en
+<workdir>/node_modules/i18next/dist/cjs/i18next.js:207 i18next: initialized Object
 localization.js:31 i18n system loaded
 localization.js:170 Detected locale en-US
 main.js:157 Libraries: jQuery - 3.5.0, d3 - 3.5.6, three.js - 72
 FirmwareCache.js:257 Firmware cache journal loaded; number of entries: 0
-firmware_flasher.js:397 Loading file from: /home/ndronet/SYNC/nerdCopter-GIT/worktrees/feat/spracingh7ef-target-bf-parity/obj/EmuFlight_0.4.3_SPRACINGH7EF_Build_f0f0477.hex
+firmware_flasher.js:397 Loading file from: <workdir>/obj/EmuFlight_0.4.3_SPRACINGH7EF_Build_f0f0477.hex
 firmware_flasher.js:406 File loaded (1117244)
 js/workers/hex_parser.js:107 HEX_PARSER - File parsed in: 0.0800 seconds
 stm32usbdfu.js:102 USB DFU detected with ID: DeviceId(DeviceId { bus: 1, addr: 10 })
@@ -297,3 +297,4 @@ stm32usbdfu.js:160 Device closed with Handle ID: 1
 stm32usbdfu.js:1096 Script finished after: 60.916 seconds
 firmware_flasher.js:509 [flashComplete] called, re-enabling controls...
 firmware_flasher.js:521 [flashComplete] controls re-enabled
+# NOTE (added when published): local directory prefixes were replaced with <workdir>/ and <home>/. No other change. Line numbers are unchanged.

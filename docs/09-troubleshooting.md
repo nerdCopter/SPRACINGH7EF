@@ -41,6 +41,7 @@ The bootloader's patterns start with faster flashes than Betaflight's own patter
 | Board stays in DFU with a red error blink, valid firmware present | system partition empty (the case that was fixed) | [Repair and restore](05-repair-restore.md) |
 | Firmware write ends with an error | interrupted or unstable write | read the partition back, compare, write again ([flash firmware](06-flash-firmware.md)) |
 | Verification fails at the same byte every time | image not valid for this board (shape or hash) | run [`tools/exst_hex_to_bin.py`](../tools/exst_hex_to_bin.py) on it ([image format](03-firmware-image-format.md)) |
+| A configurator says the image is too big (an "8K image size" message) | The manual: use a configurator version that supports this board; older ones do not understand the external-flash layout. **[SRC]** (manual pp.14 and 17) | Use `dfu-util` ([flash firmware](06-flash-firmware.md)) or a newer configurator |
 | Betaflight Configurator does not connect | board not running firmware, or wrong port | check the COM port exists; see rows above |
 
 ## USB IDs
