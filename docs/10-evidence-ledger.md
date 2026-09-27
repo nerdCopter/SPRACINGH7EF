@@ -42,5 +42,5 @@ One row per important claim, with how we know. When you learn something new, add
 2. Count the slow red flashes on a board with a blank system partition. (settles #15 for this case)
 3. Does the CPU ROM DFU (function 4) allow reading the internal flash? (would settle #17)
 4. Why did the first repaired boot take three re-plugs? (#18)
-5. What deletes `.bin` from `obj/` most of the time after a build, and why did it survive once? (#29; `inotify-tools` would help watch it live, not installed in this project so far)
-5. Run the real repair (writing) on a genuinely broken board. (extends #24 to the write path; the diagnosis path is now confirmed on real hardware, 2026-09-27)
+5. What deletes `.bin` from `obj/` most of the time after a build? (#29). Checked 2026-09-27: no GNU Make flag or explicit-target invocation (`make binary_hex TARGET=...`, which names `.bin` directly as a goal) prevented it — still lost 6/7 times regardless. `inotify-tools` (not installed) would let this be watched live.
+6. Run the real repair (writing) on a genuinely broken board. (extends #24 to the write path; the diagnosis path is now confirmed on real hardware, 2026-09-27)
