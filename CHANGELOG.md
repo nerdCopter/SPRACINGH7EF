@@ -13,3 +13,8 @@
 - Added DFU interface details, system-partition contents, OctoSPI boot pins, Betaflight build steps and build log.
 - Corrected timing claims (9.3 s is the whole backup script, not one read).
 - Result recorded: a broken board was repaired by restoring the system partition from a factory board.
+
+## 2026-09-27
+
+- Real-hardware dry-run of `spracingh7ef-repair.sh` on the factory board: correctly reported "Nothing to fix". First real-hardware test of this script (previously simulated only).
+- Corrected an error: the firmware build does **not** delete `.bin` from `obj/`. It is only removed by `make clean`. The earlier claim was based on one build where the file happened to be missing for an unconfirmed reason.

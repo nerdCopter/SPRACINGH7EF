@@ -40,7 +40,7 @@ The Betaflight doc says byte 1 of the 64-byte block selects the hash method. In 
 | `.hex` | Intel HEX text. A good EXST hex is **one** contiguous block: start 0x90100000, length 0x100000 |
 | `.bin` | The same 1 MiB as raw bytes. This is what `dfu-util` writes |
 
-The Betaflight build system creates the `.bin`, build the `.hex` from it, then **delete the `.bin`**.
+Both build systems (Betaflight and EmuFlight, same Makefile mechanism) normally leave the `.bin` in `obj/` after a build; it is only removed by `make clean`. **Correction 2026-09-27:** an earlier version of this doc said the build always deletes the `.bin`, based on one Betaflight build where it was missing afterward. Rebuilding EmuFlight's `feat/exst-image-packaging` branch fresh on 2026-09-27 left the `.bin` in place, so that is not the normal behaviour. Why that one file was missing is **[UNV]**.
 Recover it from the hex, with checks, using the tool:
 
 ```
@@ -61,7 +61,8 @@ From the owner's build of Betaflight 2026.12.0-alpha (git `e5071ce4e`), target `
 | 3. Pad it to 1 MiB with zeros | two `dd` steps, 1,048,576 bytes each |
 | 4. Compute the MD5 and patch it into the last 16 bytes | last 16 bytes of the final image: `e3ba896d f9c9e838 8a0f829f e178c440` |
 | 5. Put the hash block back into the program file and build the `.hex` from the patched `.bin` at address 0x90100000 | log line "VMA Adjust 0x90100000" |
-| 6. The `.bin` is removed | not present in `obj/` afterwards |
+
+The `.bin` is normally kept in `obj/` after this. It happened to be missing after this particular build; cause **[UNV]**.
 
 Memory layout in the program file: interrupt vector table at 0x90100000 (0x2CC bytes), code from 0x901002D0, hash section at 0x901FFFC0 (0x40 bytes), entry point 0x9016ED01. The firmware runs directly from the external flash (memory-mapped through the OctoSPI peripheral); the chip's internal flash holds only the bootloader. **[SRC]**
 
