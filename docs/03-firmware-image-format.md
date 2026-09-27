@@ -40,7 +40,7 @@ The Betaflight doc says byte 1 of the 64-byte block selects the hash method. In 
 | `.hex` | Intel HEX text. A good EXST hex is **one** contiguous block: start 0x90100000, length 0x100000 |
 | `.bin` | The same 1 MiB as raw bytes. This is what `dfu-util` writes |
 
-Both build systems (Betaflight and EmuFlight, same Makefile mechanism) normally leave the `.bin` in `obj/` after a build; it is only removed by `make clean`. **Correction 2026-09-27:** an earlier version of this doc said the build always deletes the `.bin`, based on one Betaflight build where it was missing afterward. Rebuilding EmuFlight's `feat/exst-image-packaging` branch fresh on 2026-09-27 left the `.bin` in place, so that is not the normal behaviour. Why that one file was missing is **[UNV]**.
+**Do not rely on `.bin` being present in `obj/` after a build.** In this project's environment it was checked 7 times on 2026-09-27 (EmuFlight `feat/exst-image-packaging`, target `SPRACINGH7EF`, various `-j` settings): `.bin` was present once, absent the other 6 times. The Makefile recipe itself contains no command that deletes it, and GNU Make's own debug log (`--debug=a`) shows no "Removing intermediate" message — so it is not Make's documented intermediate-file cleanup. The cause is **[UNV]**; a background process in this environment is suspected but not confirmed. Practical rule: always get the `.bin` by checking `obj/` right after your own build, and if it is not there, regenerate it from the `.hex` with the tool below.
 Recover it from the hex, with checks, using the tool:
 
 ```

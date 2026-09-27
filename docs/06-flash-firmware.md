@@ -12,7 +12,7 @@ This is the path that worked on the real board: write the 1 MiB image with `dfu-
 
 ## Steps
 
-1. Get the image as a `.bin`. It is normally in `obj/` after a build. If you only have the `.hex`, convert it with the tool, which checks the image first:
+1. Get the image as a `.bin`. Check `obj/` right after your build; it is not reliably there (see [image format](03-firmware-image-format.md#hex-file-vs-bin-file)). If it is missing, or you only have the `.hex`, convert it with the tool, which checks the image first:
    `python3 tools/exst_hex_to_bin.py path/image.hex path/image.bin`
    It must print `MD5 rule (hash bytes zeroed): PASS`. If it prints FAIL, stop: the image is not valid for this board.
 2. Back up the board ([backup guide](04-backup.md)).

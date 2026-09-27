@@ -18,3 +18,7 @@
 
 - Real-hardware dry-run of `spracingh7ef-repair.sh` on the factory board: correctly reported "Nothing to fix". First real-hardware test of this script (previously simulated only).
 - Corrected an error: the firmware build does **not** delete `.bin` from `obj/`. It is only removed by `make clean`. The earlier claim was based on one build where the file happened to be missing for an unconfirmed reason.
+
+## 2026-09-27 (later)
+
+- Corrected the `.bin`-in-`obj/` claim a second time: retested 7 times, present once, absent 6 times, cause unconfirmed. The prior "it normally persists" text was itself an overcorrection from a single sample. Rule now: never depend on it, always check.

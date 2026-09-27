@@ -30,7 +30,7 @@ One row per important claim, with how we know. When you learn something new, add
 | 22 | Works on macOS and Windows | [UNV] | not tried |
 | 23 | No public source exists for this H730 bootloader | [INF] | the `spracing` GitHub organisation lists `spracing/ssbl`, which targets the H750; nothing else found |
 | 24 | `spracingh7ef-repair.sh` diagnoses and writes correctly | [HW] for diagnosis (real board, 2026-09-27, correctly reported "Nothing to fix" on a known-good board); [INF] for the write path (still simulated-only; not yet run on a broken board) | 9 simulated scenarios plus one real dry-run |
-| 29 | A normal build leaves the `.bin` in `obj/`; it is not deleted automatically | [HW] | EmuFlight `feat/exst-image-packaging` rebuilt 2026-09-27 after merging `upstream/master`; `.bin` present. Corrects an earlier wrong claim based on one Betaflight build where it was missing (cause of that one case: **[UNV]**) |
+| 29 | Whether a normal build leaves `.bin` in `obj/` | [HW], but inconsistent: 7 builds on 2026-09-27 (EmuFlight `feat/exst-image-packaging`, `SPRACINGH7EF`, `-j1`/`-j8`) left it once, lost it 6 times. Not GNU Make's own intermediate-file cleanup (`--debug=a`: no "Removing" message) and no delete command in the recipe. Cause **[UNV]**. Practical rule: never depend on it, check `obj/` after your own build, regenerate from `.hex` if missing |
 | 25 | The system-partition write that the repair script performs repaired a real board | [HW] | [case study](07-case-study.md), step 8 (same `dfu-util` command) |
 | 26 | DFU: one alt setting, transfer size 1024, DFU version 0x011A, bootloader erases during download | [HW] | `dfu-util` output on both boards ([flash map doc](02-flash-map-and-bootloader.md#dfu-interface-details)) |
 | 27 | The Betaflight image is built as: link, unpatched bin, pad to 1 MiB, patch MD5, hex from bin, bin removed | [SRC] | [build log](../data/evidence/betaflight-build-log-spracingh7ef.txt) |
@@ -42,4 +42,5 @@ One row per important claim, with how we know. When you learn something new, add
 2. Count the slow red flashes on a board with a blank system partition. (settles #15 for this case)
 3. Does the CPU ROM DFU (function 4) allow reading the internal flash? (would settle #17)
 4. Why did the first repaired boot take three re-plugs? (#18)
+5. What deletes `.bin` from `obj/` most of the time after a build, and why did it survive once? (#29; `inotify-tools` would help watch it live, not installed in this project so far)
 5. Run the real repair (writing) on a genuinely broken board. (extends #24 to the write path; the diagnosis path is now confirmed on real hardware, 2026-09-27)
