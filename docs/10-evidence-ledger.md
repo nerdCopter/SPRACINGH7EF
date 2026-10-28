@@ -35,6 +35,10 @@ One row per important claim, with how we know. When you learn something new, add
 | 26 | DFU: one alt setting, transfer size 1024, DFU version 0x011A, bootloader erases during download | [HW] | `dfu-util` output on both boards ([flash map doc](02-flash-map-and-bootloader.md#dfu-interface-details)) |
 | 27 | The Betaflight image is built as: link, unpatched bin, pad to 1 MiB, patch MD5, hex from bin, bin removed | [SRC] | [build log](../data/evidence/betaflight-build-log-spracingh7ef.txt) |
 | 28 | Firmware write time | [UNV] | not measured |
+| 30 | Blackbox flash is a 2 MiB W25Q16JV on SPI6; the board has no SD card slot | [SRC] schematic; [HW] size from CLI `flash_info` | Rev A schematic sheet 1; [flash map doc](02-flash-map-and-bootloader.md#blackbox-storage-limits). Physical board not inspected. |
+| 31 | Boot flash U2 is wired for quad only (IO4 to IO7), not octal | [SRC] | schematic and Betaflight target config (`OCTOSPIM_P1_MODE_IO47_ONLY`) |
+| 32 | Best-case blackbox on U2 is 888 KiB (group 0), if group 0 is free | [INF] | linker script, `flash.c` partition logic; no build or hardware test |
+| 33 | Whether group 0 is free for use | [UNV] | manual calls it a "reserved area"; blank on factory board |
 
 ## Open questions worth testing next
 

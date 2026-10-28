@@ -86,6 +86,21 @@ On the factory board **[HW]**: data in the first 32,768 bytes (0x0000 to 0x7FFF)
 - The bootloader configures the external flash's OctoSPI pins before the firmware starts: PB2 (clock), PB10 (chip select), PE7, PE8, PE9, PE10 (data lines IO4 to IO7). The firmware must not reconfigure them. Betaflight's real SPRACINGH7EF board config (`configs/SPRO/SPRACINGH7EF/config.h`, <https://github.com/betaflight/config>) reserves exactly these pins. **[SRC]**
 - The H7EF has a second, separate flash chip on SPI6 (a W25Q16JV, 2 MiB, chip select PD7) used for blackbox logs. **[SRC]** (Rev A schematic, "Logging/Storage SPI", U3; CLI `flash_info` reports totalSize=2097152.) That chip is not the one the DFU shows. The board has no SD card slot.
 
+## Blackbox storage limits
+
+The board has two flash chips and no SD card slot. **[SRC]** (Rev A schematic, sheet 1: U2 "QUAD-SPI", U3 "Logging/Storage SPI")
+
+| Chip | Bus | Size | Used for |
+|---|---|---|---|
+| U3 W25Q16JV | SPI6, single-bit; /WP and /HOLD tied off, not wired to the CPU | 2 MiB | Blackbox (FlashFS). `flash_info` reports totalSize=2097152, FlashFS 2031616 bytes. **[HW]** |
+| U2 W25Q16JV-class | OctoSPI1, IO4 to IO7 only (4 data lines) | 2 MiB | Bootloader-managed: system, config, firmware (map above) |
+
+- Logging stays on U3. Quad mode on U3 is not possible with this wiring. Octal is not possible on either chip.
+- U2 cannot add log space. The firmware occupies 0x90100000 to 0x901FFFFF (1 MiB). The bootloader fixes that address. **[SRC]** (Betaflight `stm32_ram_h730_exst.ld`: "hard coded start address, as required by SPRACINGH7 boot loader"; `STM32H7.mk`: `FIRMWARE_SIZE := 1024` for EXST)
+- Best case for blackbox on U2 is group 0 (888 KiB, 0x90000000 to 0x900DDFFF). That is 43% of U3. **[INF]** Betaflight's `flashConfigurePartitions()` (`src/main/drivers/flash/flash.c`) would extend FlashFS over the system partition. A code change would be needed to stop it at 0x900DDFFF. The manual lists group 0 as a "reserved area" (bootloader function 16). Whether it is free is **[UNV]**.
+- The firmware uses one flash device. The Betaflight target config (`src/config/configs/SPRO/SPRACINGH7EF/config.h`) says there is no firmware support for logging on SPI and OctoSPI flash together. `USE_OCTOSPI` and `USE_FLASH_MEMORY_MAPPED` are commented out. **[SRC]**
+- `USE_FLASH_M25P16` in that config is a driver name. The chip is a W25Q16JV.
+
 ## Manual `dfu-util` commands (from the manual, p.16)
 
 These are the manual's own recipes. The printed manual this project used is titled for a different SP Racing product (see the note in [Sources](11-sources-and-glossary.md)); its bootloader and DFU steps apply here because this board uses the same STM32H730 EXST bootloader mechanism, confirmed by the matching DFU descriptor read from this hardware (§ above). **[SRC]** for the manual text; firmware write and read-back **[HW]** (used with `-a 0`).
