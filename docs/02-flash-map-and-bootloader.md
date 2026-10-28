@@ -84,7 +84,7 @@ On the factory board **[HW]**: data in the first 32,768 bytes (0x0000 to 0x7FFF)
 
 - The STM32H730 has only 128 KiB of internal flash. It holds the bootloader and nothing else of the firmware. **[SRC]** (Betaflight's H730 target header says the chip "only has one flash page which contains the bootloader")
 - The bootloader configures the external flash's OctoSPI pins before the firmware starts: PB2 (clock), PB10 (chip select), PE7, PE8, PE9, PE10 (data lines IO4 to IO7). The firmware must not reconfigure them. Betaflight's real SPRACINGH7EF board config (`configs/SPRO/SPRACINGH7EF/config.h`, <https://github.com/betaflight/config>) reserves exactly these pins. **[SRC]**
-- The H7EF has a second, separate flash chip on SPI6 (an M25P16, chip select PD7) used for blackbox logs. **[SRC]** That chip is not the one the DFU shows.
+- The H7EF has a second, separate flash chip on SPI6 (a W25Q16JV, 2 MiB, chip select PD7) used for blackbox logs. **[SRC]** (Rev A schematic, "Logging/Storage SPI", U3; CLI `flash_info` reports totalSize=2097152.) That chip is not the one the DFU shows. The board has no SD card slot.
 
 ## Manual `dfu-util` commands (from the manual, p.16)
 
